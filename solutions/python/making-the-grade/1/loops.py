@@ -43,7 +43,7 @@ def letter_grades(highest):
             86 <= "A" <= 100
     """
     step = (highest - 40) // 4
-    return[41 + i * step for i in range(4)]
+    return[41 + idx * step for idx in range(4)]
 
 
 def student_ranking(student_scores, student_names):
