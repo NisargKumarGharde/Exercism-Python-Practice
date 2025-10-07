@@ -54,7 +54,7 @@ def approx_average_is_average(hand):
     first_last_average = (hand[0] + hand[-1]) / 2
     middle_index = len(hand) // 2
     median = hand[middle_index]
-    return true_average == first_last_average or true_average == median
+    return true_average in (first_last_average, median)
 
 
 def average_even_is_average_odd(hand):
