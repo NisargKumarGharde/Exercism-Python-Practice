@@ -34,8 +34,6 @@ def check_drinks(drink_name, drink_ingredients):
     name followed by "Cocktail" (includes alcohol).
 
     """
-    from sets_categories_data import ALCOHOLS
-
     if set(drink_ingredients).intersection(ALCOHOLS):
         return f"{drink_name} Cocktail"
     return f"{drink_name} Mocktail"
@@ -52,20 +50,17 @@ def categorize_dish(dish_name, dish_ingredients):
     All dishes will "fit" into one of the categories imported from `sets_categories_data.py`
 
     """
-    from sets_categories_data import VEGAN, VEGETARIAN, PALEO, KETO, OMNIVORE
-
     if dish_ingredients <= VEGAN:
         return f"{dish_name}: VEGAN"
-    elif dish_ingredients <= VEGETARIAN:
+    if dish_ingredients <= VEGETARIAN:
         return f"{dish_name}: VEGETARIAN"
-    elif dish_ingredients <= PALEO:
+    if dish_ingredients <= PALEO:
         return f"{dish_name}: PALEO"
-    elif dish_ingredients <= KETO:
+    if dish_ingredients <= KETO:
         return f"{dish_name}: KETO"
-    elif dish_ingredients <= OMNIVORE:
+    if dish_ingredients <= OMNIVORE:
         return f"{dish_name}: OMNIVORE"
-    else:
-        return dish_name
+    return dish_name
 
 
 def tag_special_ingredients(dish):
@@ -78,8 +73,6 @@ def tag_special_ingredients(dish):
     For the purposes of this exercise, all allergens or special ingredients that need to be tracked are in the
     SPECIAL_INGREDIENTS constant imported from `sets_categories_data.py`.
     """
-    from sets_categories_data import SPECIAL_INGREDIENTS
-
     dish_name, ingredients = dish
     special = set(ingredients) & SPECIAL_INGREDIENTS
     return (dish_name, special)
